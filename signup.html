@@ -1,0 +1,19 @@
+<body class="flex items-center justify-center min-h-screen p-6 relative">
+    <div class="glass-card p-10 rounded-[40px] w-full max-w-md text-center z-10">
+        <h2 class="hero-font text-3xl text-amber-500 mb-6">NEW EXPLORER</h2>
+        <form id="signupForm" class="space-y-5">
+            <input type="text" id="name" required placeholder="Full Name" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl text-white">
+            <input type="email" id="email" required placeholder="Email Address" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl text-white">
+            <input type="password" id="password" required placeholder="Create Password" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl text-white">
+            <button type="submit" class="btn-gold w-full py-5 rounded-2xl uppercase font-bold">Create Account</button>
+        </form>
+        <p class="mt-6 text-sm text-stone-500">Already have an account? <a href="login.html" class="text-amber-500 font-bold">Login</a></p>
+    </div>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Account Created! Please Login.");
+            window.location.href = "login.html";
+        });
+    </script>
+</body>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <title>Login | Heritage Quest</title>
+    <style>
+        body { background-color: #070707; color: white; font-family: sans-serif; }
+        .hero-font { font-family: 'Cinzel', serif; }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(212, 175, 55, 0.3); 
+        }
+        .btn-gold { background: linear-gradient(135deg, #f59e0b, #b45309); color: black; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="glass-card p-10 rounded-[40px] w-full max-w-md text-center">
+        <h2 class="hero-font text-3xl text-amber-500 mb-6">HERITAGE LOGIN</h2>
+        
+        <form id="loginForm" class="space-y-6">
+            <input type="email" id="user_email" required placeholder="Enter Email" 
+                class="w-full bg-white/10 border border-white/20 p-4 rounded-xl text-white outline-none focus:border-amber-500">
+            
+            <input type="password" id="user_password" required placeholder="Enter Password" 
+                class="w-full bg-white/10 border border-white/20 p-4 rounded-xl text-white outline-none focus:border-amber-500">
+            
+            <button type="submit" class="btn-gold w-full py-4 rounded-xl font-bold uppercase tracking-widest">
+                Login to Website
+            </button>
+        </form>
+        <p id="errorMessage" class="text-red-500 mt-4 hidden">Invalid login attempt.</p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents page from refreshing
+            
+            // Get the values
+            const email = document.getElementById('user_email').value;
+            const password = document.getElementById('user_password').value;
+
+            console.log("Attempting login for:", email);
+
+            // 1. Set the "Gate" to open (Local Storage)
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('currentUser', email);
+
+            // 2. Immediate Redirection
+            // If your file is in the same folder, this will work.
+            window.location.replace("index.html"); 
+        });
+    </script>
+</body>
+</html>
